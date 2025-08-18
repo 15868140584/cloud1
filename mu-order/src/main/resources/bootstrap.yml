@@ -1,0 +1,12 @@
+server:
+  port: 8082
+spring:
+  application:
+    name: mu-order
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+        namespace: test
+        group: DEFAULT_GROUP # 服务分组，根据实际情况修改，要与mu-login所在分组一致
+        cluster-name: DEFAULT # 集群名称，可用于标识服务所在的集群，如杭州集群、深圳集群等，方便做流量管理等

@@ -15,6 +15,11 @@ spring:
           - data-id: demo-common-test.yml
             group: DEFAULT_GROUP
             refresh: true
+      discovery:
+        server-addr: localhost:8848
+        namespace: test
+        group: DEFAULT_GROUP # 服务分组，可将相关服务归为一组，默认分组为DEFAULT_GROUP
+        cluster-name: DEFAULT # 集群名称，可用于标识服务所在的集群，如杭州集群、深圳集群等，方便做流量管理等
 
 server:
   port: 8081

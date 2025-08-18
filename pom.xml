@@ -68,6 +68,11 @@
                 <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
                 <version>${springcloud.alibaba.version}</version>
             </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-openfeign</artifactId>
+                <version>3.1.4</version>
+            </dependency>
 
             <!-- 其他公共依赖，如数据库、Lombok 等 -->
             <dependency>

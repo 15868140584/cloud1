@@ -31,8 +31,13 @@ public class DemoController {
         user.setPassword("123456");
 
         System.out.println(demoConfig);
-
         return new Result<>(user);
+    }
+
+
+    @GetMapping("/userDemoTest1")
+    public String userDemoTest1() {
+        return "hello";
     }
 
 }
