@@ -1,0 +1,20 @@
+spring:
+  profiles:
+    active: test
+  application:
+    name: mu-login  # 服务名
+  cloud:
+    nacos:
+      config:
+        server-addr: localhost:8848  # Nacos地址
+        namespace: test  # 命名空间（默认可省略）
+        group: DEFAULT_GROUP  # 分组（默认可省略）
+        file-extension: yml  # 配置格式
+        enabled: true
+        extension-configs:
+          - data-id: demo-common-test.yml
+            group: DEFAULT_GROUP
+            refresh: true
+
+server:
+  port: 8081
