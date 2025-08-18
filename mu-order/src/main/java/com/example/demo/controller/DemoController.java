@@ -30,11 +30,11 @@ public class DemoController {
     @GetMapping("/findServiceTest")
     public void findService(){
 
-//        String url = "http://mu-login/demo/userDemoTest1";
-//        String forObject = restTemplate.getForObject(url, String.class);
-//        System.out.println(forObject);
-        String demo = demoFeign.demo();
-        System.out.println(demo);
+        String url = "http://mu-login/demo/userDemoTest1";
+        String forObject = restTemplate.getForObject(url, String.class);
+        System.out.println(forObject);
+//        String demo = demoFeign.demo();
+//        System.out.println(demo);
 
     }
 
