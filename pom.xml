@@ -23,11 +23,13 @@
         <lombok.version>1.18.30</lombok.version>
         <springboot.version>2.7.15</springboot.version>
         <springcloud.alibaba.version>2021.0.5.0</springcloud.alibaba.version>
+        <springcloud.version>3.1.4</springcloud.version>
     </properties>
 
     <modules>
         <module>mu-login</module>
         <module>mu-order</module>
+        <module>mu-gateway</module>
     </modules>
 
     <dependencyManagement>
@@ -71,7 +73,22 @@
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-openfeign</artifactId>
-                <version>3.1.4</version>
+                <version>${springcloud.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-gateway</artifactId>
+                <version>${springcloud.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-loadbalancer</artifactId>
+                <version>${springcloud.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-bootstrap</artifactId>
+                <version>${springcloud.version}</version>
             </dependency>
 
             <!-- 其他公共依赖，如数据库、Lombok 等 -->
