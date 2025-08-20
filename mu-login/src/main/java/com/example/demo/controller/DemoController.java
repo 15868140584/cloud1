@@ -3,10 +3,12 @@ package com.example.demo.controller;
 import com.example.demo.entity.DemoConfig;
 import com.example.demo.entity.Result;
 import com.example.demo.entity.User;
+import com.example.demo.service.DemoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -24,6 +26,9 @@ public class DemoController {
     @Autowired
     private DemoConfig demoConfig;
 
+    @Autowired
+    private DemoService demoService;
+
     @GetMapping("/userDemoTest")
     public Result<User> userDemoTest() {
         User user = new User();
@@ -38,6 +43,11 @@ public class DemoController {
     @GetMapping("/userDemoTest1")
     public String userDemoTest1() {
         return "hello";
+    }
+
+    @PostMapping("/findStudents")
+    public void findStudents() {
+       demoService.findById(1);
     }
 
 }

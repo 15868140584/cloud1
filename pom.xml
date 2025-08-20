@@ -24,6 +24,9 @@
         <springboot.version>2.7.15</springboot.version>
         <springcloud.alibaba.version>2021.0.5.0</springcloud.alibaba.version>
         <springcloud.version>3.1.4</springcloud.version>
+        <version.mybatis.plus>3.5.3.1</version.mybatis.plus>
+        <version.mysql.dirver>8.0.33</version.mysql.dirver>
+        <version.mysql.druid>1.2.16</version.mysql.druid>
     </properties>
 
     <modules>
@@ -97,6 +100,24 @@
                 <artifactId>lombok</artifactId>
                 <version>${lombok.version}</version>
                 <scope>provided</scope>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/com.baomidou/mybatis-plus-boot-starter -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${version.mybatis.plus}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${version.mysql.dirver}</version> <!-- 根据实际使用的MySQL版本选择合适驱动版本 -->
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>${version.mysql.druid}</version> <!-- 根据实际情况选择 -->
             </dependency>
 
         </dependencies>

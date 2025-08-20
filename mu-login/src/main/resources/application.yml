@@ -1,0 +1,82 @@
+spring:
+  datasource:
+    # 数据库连接信息
+    url: jdbc:mysql://localhost:3306/std?useSSL=false&serverTimezone=UTC&characterEncoding=utf8
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+    # Druid连接池配置
+    druid:
+      # 初始化连接数
+      initial-size: 5
+      # 最大连接数
+      max-active: 20
+      # 最小空闲连接数
+      min-idle: 5
+      # 配置获取连接等待超时的时间（毫秒）
+      max-wait: 60000
+      # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+      time-between-eviction-runs-millis: 60000
+      # 配置一个连接在池中最小生存的时间，单位是毫秒
+      min-evictable-idle-time-millis: 300000
+      # 验证连接有效性的SQL
+      validation-query: SELECT 1 FROM DUAL
+      # 当连接空闲时，是否执行连接测试
+      test-while-idle: true
+      # 当从连接池借用连接时，是否测试该连接
+      test-on-borrow: false
+      # 在连接归还到连接池时是否测试该连接
+      test-on-return: false
+      # 是否缓存preparedStatement，也就是PSCache。对支持游标的数据库性能提升巨大，如Oracle
+      pool-prepared-statements: true
+      # 要启用PSCache，必须配置大于0，当大于0时，poolPreparedStatements自动触发修改为true
+      max-pool-prepared-statement-per-connection-size: 20
+
+      # 配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+      filters: stat,wall,slf4j
+
+      # 监控配置
+      stat-view-servlet:
+        enabled: true          # 开启监控页面
+        url-pattern: /druid/*  # 监控页面访问路径
+        login-username: admin  # 监控页面登录用户名
+        login-password: 123456 # 监控页面登录密码
+        reset-enable: false    # 是否允许重置统计数据
+
+      # Web应用监控配置
+      web-stat-filter:
+        enabled: true          # 开启Web应用监控
+        url-pattern: /*        # 监控所有URL
+        exclusions: "*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*"  # 排除不需要监控的资源
+
+
+# MyBatis-Plus配置
+mybatis-plus:
+  # Mapper XML文件路径（可选，纯注解开发可省略）
+  mapper-locations: classpath:mapper/**/*.xml
+  # 实体类包路径（用于简化类名引用）
+  type-aliases-package: com.example.demo.po
+  # 全局配置
+  global-config:
+    db-config:
+      # 主键类型：AUTO(自增)、INPUT(手动输入)、ASSIGN_ID(雪花算法)等
+      id-type: AUTO
+      # 表名前缀（可选，如配置为"t_"，则实体类User对应表t_user）
+      table-prefix:
+      # 逻辑删除字段名（逻辑删除功能需要）
+      logic-delete-field: isDeleted
+      # 逻辑删除值（已删除）
+      logic-delete-value: 1
+      # 未删除值
+      logic-not-delete-value: 0
+    # 关闭MP的banner（启动时的logo）
+    banner: false
+  # 原生MyBatis配置
+  configuration:
+    # 驼峰命名映射（数据库字段student_id → 实体类studentId）
+    map-underscore-to-camel-case: true
+    # 打印SQL日志（开发环境建议开启）
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    # 允许返回空结果集
+    return-instance-for-empty-row: true
