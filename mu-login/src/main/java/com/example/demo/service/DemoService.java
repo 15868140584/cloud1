@@ -1,8 +1,10 @@
 package com.example.demo.service;
 
 
+import com.example.demo.entity.User;
+
 public interface DemoService {
 
-    void findById(Integer id);
+    User findById(Integer id);
 
 }

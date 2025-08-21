@@ -46,8 +46,8 @@ public class DemoController {
     }
 
     @PostMapping("/findStudents")
-    public void findStudents() {
-       demoService.findById(1);
+    public User findStudents() {
+       return demoService.findById(1);
     }
 
 }
